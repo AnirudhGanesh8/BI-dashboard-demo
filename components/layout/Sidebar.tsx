@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { X, BarChart3, FileText, Settings, Upload, Users, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,17 +10,15 @@ interface SidebarProps {
 }
 
 const navigationItems = [
-  { name: 'Dashboard', icon: BarChart3, href: '/dashboard' },
-  { name: 'Reports', icon: FileText, href: '/reports' },
-  { name: 'Data Upload', icon: Upload, href: '/upload' },
-  { name: 'Analytics', icon: TrendingUp, href: '/analytics' },
-  { name: 'Team', icon: Users, href: '/team' },
-  { name: 'Settings', icon: Settings, href: '/settings' },
+  { name: 'Dashboard', icon: BarChart3, href: '#', active: true },
+  { name: 'Reports', icon: FileText, href: '#', active: false },
+  { name: 'Data Upload', icon: Upload, href: '#', active: false },
+  { name: 'Analytics', icon: TrendingUp, href: '#', active: false },
+  { name: 'Team', icon: Users, href: '#', active: false },
+  { name: 'Settings', icon: Settings, href: '#', active: false },
 ];
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const pathname = usePathname();
-
   return (
     <>
       {/* Mobile overlay */}
@@ -56,20 +52,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <div className="mt-8 lg:mt-20">
           <nav className="px-4 space-y-2">
             {navigationItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
                 href={item.href}
-                onClick={onClose}
                 className={cn(
                   'flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-colors',
-                  pathname === item.href
+                  item.active
                     ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-600'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                 )}
               >
                 <item.icon className="mr-3 h-5 w-5" />
                 {item.name}
-              </Link>
+              </a>
             ))}
           </nav>
         </div>

@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Menu, Bell, Search, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,8 +16,6 @@ interface HeaderProps {
 }
 
 export function Header({ onMenuClick }: HeaderProps) {
-  const pathname = usePathname();
-
   return (
     <header className="bg-white border-b border-gray-200 px-4 lg:px-6 py-4 sticky top-0 z-50">
       <div className="flex items-center justify-between">
@@ -35,33 +31,22 @@ export function Header({ onMenuClick }: HeaderProps) {
           
           <div className="flex items-center space-x-2">
             <div className="h-8 w-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">B</span>
+              <span className="text-white font-bold text-sm">BI</span>
             </div>
-            <Link href="/" className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-              BI Dashboard
-            </Link>
+            <h1 className="text-xl font-bold text-gray-900">Business Intelligence</h1>
           </div>
         </div>
 
         <nav className="hidden md:flex items-center space-x-8">
-          <Link 
-            href="/dashboard" 
-            className={pathname === '/dashboard' ? 'text-blue-600 font-medium border-b-2 border-blue-600 pb-1' : 'text-gray-600 hover:text-gray-900 transition-colors'}
-          >
+          <a href="#" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">
             Dashboard
-          </Link>
-          <Link 
-            href="/reports" 
-            className={pathname === '/reports' ? 'text-blue-600 font-medium border-b-2 border-blue-600 pb-1' : 'text-gray-600 hover:text-gray-900 transition-colors'}
-          >
+          </a>
+          <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
             Reports
-          </Link>
-          <Link 
-            href="/settings" 
-            className={pathname === '/settings' ? 'text-blue-600 font-medium border-b-2 border-blue-600 pb-1' : 'text-gray-600 hover:text-gray-900 transition-colors'}
-          >
+          </a>
+          <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
             Settings
-          </Link>
+          </a>
         </nav>
 
         <div className="flex items-center space-x-4">
