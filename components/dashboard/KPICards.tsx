@@ -14,13 +14,13 @@ interface KPICardProps {
 
 function KPICard({ title, value, change, changeType, icon: Icon }: KPICardProps) {
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-200">
+    <Card className="hover:shadow-lg transition-shadow duration-200 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium text-gray-600">{title}</CardTitle>
-        <Icon className="h-5 w-5 text-gray-400" />
+        <CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400">{title}</CardTitle>
+        <Icon className="h-5 w-5 text-gray-400 dark:text-gray-500" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold text-gray-900 mb-1">{value}</div>
+        <div className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">{value}</div>
         <div className="flex items-center text-sm">
           {changeType === 'positive' ? (
             <TrendingUp className="h-4 w-4 text-green-500 mr-1" />
@@ -35,7 +35,7 @@ function KPICard({ title, value, change, changeType, icon: Icon }: KPICardProps)
           >
             {change}
           </span>
-          <span className="text-gray-500 ml-1">from last month</span>
+          <span className="text-gray-500 dark:text-gray-400 ml-1">from last month</span>
         </div>
       </CardContent>
     </Card>

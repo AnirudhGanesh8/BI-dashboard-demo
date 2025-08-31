@@ -48,19 +48,20 @@ export function ChartsSection() {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
       {/* Revenue Bar Chart */}
-      <Card className="col-span-1">
+      <Card className="col-span-1 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold">Monthly Revenue & Orders</CardTitle>
+          <CardTitle className="text-lg font-semibold text-gray-900 dark:text-gray-100">Monthly Revenue & Orders</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={revenueData}>
-              <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
+              <CartesianGrid strokeDasharray="3 3" className="opacity-30" stroke="currentColor" />
               <XAxis dataKey="month" className="text-sm" />
               <YAxis className="text-sm" />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'white',
+                  backgroundColor: 'hsl(var(--card))',
+                  color: 'hsl(var(--card-foreground))',
                   border: '1px solid #e5e7eb',
                   borderRadius: '8px',
                 }}
@@ -72,19 +73,20 @@ export function ChartsSection() {
       </Card>
 
       {/* User Growth Line Chart */}
-      <Card className="col-span-1">
+      <Card className="col-span-1 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold">User Growth Trend</CardTitle>
+          <CardTitle className="text-lg font-semibold text-gray-900 dark:text-gray-100">User Growth Trend</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={userGrowthData}>
-              <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
+              <CartesianGrid strokeDasharray="3 3" className="opacity-30" stroke="currentColor" />
               <XAxis dataKey="month" className="text-sm" />
               <YAxis className="text-sm" />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'white',
+                  backgroundColor: 'hsl(var(--card))',
+                  color: 'hsl(var(--card-foreground))',
                   border: '1px solid #e5e7eb',
                   borderRadius: '8px',
                 }}
@@ -102,9 +104,9 @@ export function ChartsSection() {
       </Card>
 
       {/* Category Distribution Pie Chart */}
-      <Card className="col-span-1 xl:col-span-2">
+      <Card className="col-span-1 xl:col-span-2 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold">Sales by Category</CardTitle>
+          <CardTitle className="text-lg font-semibold text-gray-900 dark:text-gray-100">Sales by Category</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col lg:flex-row items-center">
@@ -135,12 +137,13 @@ export function ChartsSection() {
                       <div
                         className="w-4 h-4 rounded"
                         style={{ backgroundColor: category.color }}
+                        aria-hidden="true"
                       />
-                      <span className="text-sm font-medium text-gray-700">
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                         {category.name}
                       </span>
                     </div>
-                    <span className="text-sm font-bold text-gray-900">
+                    <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
                       {category.value}%
                     </span>
                   </div>
